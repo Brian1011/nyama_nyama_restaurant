@@ -17,8 +17,8 @@ class CreateMealsTable extends Migration
             $table->bigIncrements('id');
             $table->string('meal_name');
             $table->string('meal_price');
-            $table->string('meal_status');
-            $table->string('meal_picture');
+            $table->integer('meal_status');
+            $table->string('meal_picture')->nullable();
             $table->timestamps();
         });
     }

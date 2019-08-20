@@ -14,7 +14,8 @@ class MealController extends Controller
      */
     public function index()
     {
-        //
+        $meals = meal::all();
+        return view('meals.index', compact('meals'));
     }
 
     /**
