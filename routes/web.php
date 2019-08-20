@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('meals', 'MealController');
+Route::resource('meals', 'MealController');

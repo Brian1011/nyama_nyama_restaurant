@@ -18,7 +18,6 @@
                     <option value="0">Available</option>
                     <option value="1">Unavailable</option>
                 </select>
-                <input type="text" class="form-control" id="meal_status" placeholder="available">
             </div>
             <div class="form-group">
                 <label for="meal_picture">Meal Picture</label>

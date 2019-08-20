@@ -25,7 +25,7 @@ class MealController extends Controller
      */
     public function create()
     {
-        //
+        return view('meals.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class MealController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'meal_name'=>'required',
+            'meal_price'=>'required|number',
+            'meal_picture'=>'required'
+        ]);
+
+        meal::create($request->all());
+
+        return back()->with('success','Meal created successfully');
     }
 
     /**
@@ -47,7 +55,7 @@ class MealController extends Controller
      */
     public function show(meal $meal)
     {
-        //
+        return view('meals.show', compact('meal'));
     }
 
     /**
@@ -58,7 +66,7 @@ class MealController extends Controller
      */
     public function edit(meal $meal)
     {
-        //
+        return view('meals.edit',compact('meal'));
     }
 
     /**
@@ -70,7 +78,15 @@ class MealController extends Controller
      */
     public function update(Request $request, meal $meal)
     {
-        //
+        $request->validate([
+            'meal_name'=>'required',
+            'meal_price'=>'required|number',
+            'meal_picture'=>'required'
+        ]);
+
+        meal::update($request->all());
+
+        return back()->with('success','Meal updated successfully');
     }
 
     /**
@@ -79,8 +95,10 @@ class MealController extends Controller
      * @param  \App\meal  $meal
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(meal $meal)
     {
-        //
+        $meal->delete();
+        return back()->with('success','Meal deleted successfully');
     }
 }
