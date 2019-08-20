@@ -2,7 +2,7 @@
 
 @section('content')
 <div>
-    <h1 style="text-align: center">Welcome to Nyama Nyama Restaurant</h1>
+    <h1 style="text-align: center">List of Meals</h1>
 
     @if($message = Session::get('success'))
         <div class="alert alert-success">
@@ -14,7 +14,7 @@
         </div>
     @endif
     <table class="table table-hover table-striped table-responsive-lg" id="dataTable">
-        <thead>
+        <thead class="bg-primary">
             <tr>
                 <th>Meal Id</th>
                 <th>Picture</th>
