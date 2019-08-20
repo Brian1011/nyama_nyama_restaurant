@@ -14,7 +14,7 @@
         </div>
     @endif
     <table class="table table-hover table-striped table-responsive-lg" id="dataTable">
-        <thead class="bg-primary">
+        <thead>
             <tr>
                 <th>Meal Id</th>
                 <th>Picture</th>

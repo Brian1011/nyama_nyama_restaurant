@@ -38,13 +38,19 @@ class MealController extends Controller
     {
         $request->validate([
             'meal_name'=>'required',
-            'meal_price'=>'required|number',
-            'meal_picture'=>'required'
+            'meal_price'=>'required|numeric',
+            'meal_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        meal::create($request->all());
+        $input = $request->all();
+        //deal with the image
+        $image = $request->file('meal_picture');
+        $new_image_name = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path("images"),$new_image_name);
+        $input['meal_picture'] = $new_image_name;
+        meal::create($input);
 
-        return back()->with('success','Meal created successfully');
+        //return back()->with('success','Meal created successfully');
     }
 
     /**
@@ -81,7 +87,7 @@ class MealController extends Controller
         $request->validate([
             'meal_name'=>'required',
             'meal_price'=>'required|number',
-            'meal_picture'=>'required'
+            'meal_pic'=>'required'
         ]);
 
         meal::update($request->all());
