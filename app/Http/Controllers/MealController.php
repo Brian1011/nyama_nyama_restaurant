@@ -50,7 +50,7 @@ class MealController extends Controller
         $input['meal_picture'] = $new_image_name;
         meal::create($input);
 
-        //return back()->with('success','Meal created successfully');
+        return redirect()->route('meals.create')->with('success',$input['meal_name'].' meal saved successfully');
     }
 
     /**

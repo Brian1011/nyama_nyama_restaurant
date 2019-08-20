@@ -16,15 +16,15 @@
             @endif
 
             <!--Check for success message-->
-                @if(session()->has('message'))
+                @if(session()->has('success'))
                     <div class="alert alert-success">
-                        {{session()->get('message')}}
+                        {{session()->get('success')}}
                     </div>
                 @endif
 
             <div>
                 <h1 style="text-align: center">Add New Meal</h1>
-                <form action="{{route('meals.store')}}" method="post">
+                <form action="{{route('meals.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="picture">Meal Picture</label>
